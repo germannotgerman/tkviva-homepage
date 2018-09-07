@@ -1,0 +1,22 @@
+{
+	"name": "tkviva-homepage",
+	"version": "1.0.0",
+	"description": "TK Viva Homepage",
+	"main": "app/index.html",
+	"author": "German Mumma",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/npm/cli.git"
+	},
+	"devDependencies": {
+		"browser-sync": "^2.24.7",
+		"gulp": "^3.9.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-watch": "^5.0.1",
+		"postcss-import": "^12.0.0"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.0"
+	}
+}

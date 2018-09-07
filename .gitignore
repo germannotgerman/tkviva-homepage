@@ -1,0 +1,5 @@
+# Custom
+package-lock.json
+
+# Always ignore extensions
+node_modules
