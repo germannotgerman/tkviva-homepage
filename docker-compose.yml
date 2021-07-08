@@ -1,0 +1,9 @@
+version: "3"
+services:
+    web:
+        image: image-tk-viva
+        build: .
+        container_name: tk-viva-site
+        restart: always
+        ports:
+            - "80:80"
