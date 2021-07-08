@@ -2,9 +2,6 @@ version: "3"
 services:
     nginx:
         image: nginx:stable-alpine
-        build: .
-        container_name: tk-viva-site
-        restart: always
         ports:
             - "80:80"
             - "443:443"
