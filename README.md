@@ -10,7 +10,7 @@
 Pull code.  
 Build image from Dockerfile:  
 ```
-docker build -t image-tk-viva .
+docker build -t image-tkviva .
 ```
 Create container with docker-compose:  
 ```
