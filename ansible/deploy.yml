@@ -1,0 +1,8 @@
+---
+- name: Deploy TK VIVA Homepage
+  hosts: web
+  tasks:
+    - name: Copy website files to server
+      synchronize:
+        src: tkviva
+        dest: /var/www/html

@@ -1,0 +1,39 @@
+---
+- name: Update server and install packages
+  hosts: web
+  tasks:
+    - name: Update OS packages and tidy up
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+        autoremove: yes
+        autoclean: yes
+
+    - name: Remove apache2
+      apt:
+        name: apache2*
+        state: absent
+
+    - name: Install software
+      apt:
+        name: ['nginx', 'snapd', 'net-tools']
+        state: present
+    
+    - name: Install Certbot
+      block:
+        - name: Install snap core
+          snap:
+            name: core
+            state: present
+        - name: Install certbot from snap
+          snap:
+            name: certbot
+            classic: yes
+        - name: Create symlink for certbot
+          file:
+            src: /snap/bin/certbot
+            dest: /usr/bin/certbot
+            state: link
+
+    

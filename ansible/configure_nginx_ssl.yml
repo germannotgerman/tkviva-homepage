@@ -1,0 +1,38 @@
+---
+- name: Deploy TK VIVA Homepage
+  hosts: web
+  tasks:
+    - name: Create www dir
+      file:
+        path: /var/www/html/tkviva
+        state: directory
+        recurse: yes
+        owner: web
+        group: www-data
+
+    - name: Create logs dir
+      file:
+        path: /var/log/tkviva
+        state: directory
+        recurse: yes
+        owner: web
+        group: www-data
+
+    - name: Stop nginx
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Add nginx virtual conf
+      template:
+        src: templates/nginx.conf.j2
+        dest: "/etc/nginx/conf.d/tkviva.conf"
+    
+    - name: Generate SSL certs
+      shell: "certbot certonly --standalone --non-interactive --agree-tos -m {{ letsencrypt_email }} -d {{ website_domain }}"
+      when: with_certs|default(false)|bool
+
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
