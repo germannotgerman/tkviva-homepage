@@ -3,7 +3,7 @@ all:
     web:
       hosts:
         tkviva:
-          ansible_host: 172.104.233.142
+          ansible_host: 172.104.153.88
           website_domain: tkviva.eu
       vars:
         ansible_ssh_user: web
