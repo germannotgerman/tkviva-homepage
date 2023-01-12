@@ -4,5 +4,5 @@
   tasks:
     - name: Copy website files to server
       synchronize:
-        src: tkviva
+        src: ../tkviva
         dest: /var/www/html
